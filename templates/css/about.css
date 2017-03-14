@@ -1,0 +1,351 @@
+@font-face{
+font-family:myFont;
+src:url('../fonts/BRUSHSCRIPTSTD.OTF');
+}
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+text-decoration: none;
+}
+body{
+	font-family: Arial,"Microsoft YaHei",sans-serif;
+}
+html,body{
+	height: 100%;
+	overflow: hidden;
+}
+/*parallax*/
+
+#container,.sections,.section{
+	height: 100%;
+	position: relative;
+}
+#section0,
+#section1,
+#section2,
+#section3,
+#section4,
+#section5{
+	background-color: #000;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+#section0{
+	background-image: url(../images/about-us_01.jpg);
+	color: #fff;
+	text-shadow:1px 1px 1px #333;
+}
+#section1{
+	color: #fff;
+	text-shadow:1px 1px 1px #333;
+	background-image: url(../images/about-us_02.jpg);
+}
+#section2{
+	background-image: url(../images/about-us_03.jpg);
+	color: #fff;
+	text-shadow:1px 1px 1px #666;
+}
+#section3{
+	color: #fff;
+	background-image: url(../images/about-us_04.jpg);
+	text-shadow:1px 1px 1px #fff;
+}
+#section4{
+	color: #fff;
+	background-image: url(../images/about-us_05.jpg);
+	text-shadow:1px 1px 1px #fff;
+}
+#section5{
+	color: #fff;
+	background-image: url(../images/about-us_06.jpg);
+	text-shadow:1px 1px 1px #fff;
+}
+
+#section3 p{
+	color: #00A3AF;
+}
+.left{
+	float: left;
+}
+h1{
+	font-size: 6em;
+	font-weight: normal;
+
+}
+p{
+	font-size: 2em;
+	margin:0.5em 0 2em 0;
+}
+
+/*section0*/
+#section0 h1{
+	font-family: myFont;
+	font-size: 142px;
+	color: #000;
+	padding-bottom: 0px;
+}
+#section0 h1 span{
+	color: #f00;
+
+}
+
+.about-hr{
+	position: relative;
+	top: -42px;
+	margin: 0 auto;
+	width: 550px;
+	height: 2px;
+	background-color: #fff;
+}
+#section0 p{
+	position: relative;
+	top: -32px;
+	left: 16px;
+	font-size: 34px;
+	letter-spacing: 22px;
+	margin-top: 0;
+}
+
+
+/*section1 shitouge's introduce*/
+#section1 .single-head{
+     height: 200px;
+     width: 100%;
+     padding-top: 40px;
+     padding-left: 200px;
+     padding-right: 200px;
+    
+}
+.single-head img{
+	width: 160px;
+	height: 160px;
+
+}
+#section1 .jump{
+	float: right;
+}
+#section1 a{
+	font-family: myFont;
+	font-size: 60px;
+	color: #000;
+	position: relative;
+	top: -100px;
+	text-decoration: none;
+	
+}
+#section1  .intro p{
+	font-size: 22px;
+	line-height: 28px;
+}
+#section1 a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+#section1 .github-a{
+	position: absolute;
+	top: 200px;
+}
+.single-head p{
+	color: #000;
+}
+/*section2 soFly's introduce*/
+#section2 .single-head{
+
+	width: 100%;
+	text-align: center;
+	padding:80px 200px;
+
+}
+#section2 .intro p{
+
+	font-family: myFont;
+	color: #edd495;
+	text-shadow: 4px;
+}
+
+
+#section2 .single-head img{
+
+	width: 120px;
+	height: 120px;
+
+}
+#section2 .single-head p{
+	color: #fff;
+	text-shadow:  5px 5px 5px #000;
+}
+
+
+
+
+
+
+/*section3 doubi's introduce*/
+/*夏念军的部分*/
+/*section3 doubi's introduce*/
+#section3 p
+{
+    color: #fff;
+}
+#section3 #x1 {
+	width: 1000px;
+	height: 180px;
+}
+#section3 #x2 {
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+#section3 #x2:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+
+}
+#section3 .single-head {
+	text-align: right;
+	padding-right: 20px;
+}
+#section3 .single-head p {
+	margin-right: 50px;
+
+}
+
+
+/*夏念军的部分-end*/
+
+
+
+
+
+
+/*section4 gentleman's introdece*/
+#section4 .single-head p{
+ color: #fff;
+}
+
+
+
+
+/*section5 end*/
+#section5 h1{
+	font-family: myFont;
+	font-size: 120px;
+	color: #fff;
+	margin-bottom: 20px;
+
+}
+
+
+
+
+.intro{
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	text-align: center;
+}
+.pages{
+	position:fixed;
+	list-style: none;
+}
+.vertical.pages{
+	right: 10px;
+	top: 50%;
+}
+.horizontal.pages{
+	left: 50%;
+	bottom: 10px;
+}
+.pages li{
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #fff;
+	margin: 10px 5px;
+	cursor: pointer;
+}
+.horizontal.pages li{
+	display: inline-block;
+	vertical-align: middle;
+}
+.pages li.active{
+	width: 14px;
+	height: 14px;
+	border: 2px solid #FFFE00;
+	background: none;
+	margin-left: 0;
+}
+#section0 .title{
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+	-webkit-animation: sectitle0 1s ease-in-out 100ms forwards;
+	animation: sectitle0 1s ease-in-out 100ms forwards;
+}
+#section0 p{
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	-webkit-animation: sec0 1s ease-in-out 100ms forwards;
+	animation: sec0 1s ease-in-out 100ms forwards;
+}
+  .header{
+  	position: fixed;
+ 	width: 300px;
+ 	height: 200px;
+ 	
+ }
+ .github-a img:hover{
+     opacity: 0.7;
+ }
+ .github-img{
+ 	width: 60px;
+ 	height: 60px;
+ }
+     
+
+
+@-webkit-keyframes sectitle0{
+	0%{
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+	}
+	100%{
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+@keyframes sectitle0{
+	0%{
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+	}
+	100%{
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+@-webkit-keyframes sec0{
+	0%{
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+	100%{
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
+@keyframes sec0{
+	0%{
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+	100%{
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}

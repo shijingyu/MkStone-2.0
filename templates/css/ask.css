@@ -1,0 +1,181 @@
+body{
+	background: #fff;
+	color: #111;
+	font-family: "Open Sans",Helvetica,Arial,sans-serif;
+	font-size: 13px;
+	line-height: 1.5;
+	overflow-y: scroll;
+
+}
+
+nav{
+	height: 50px;
+}
+.nav1{
+	width: 100%;
+	height: 112px;
+	background-color: #ccc;
+	margin-bottom: 40px;
+	padding-top: 8px;
+	text-align: center;
+}
+
+.toolbar{
+	margin-bottom: 15px;
+	padding-left: 40px;	
+}
+.toolbar-view{
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding:0;
+}
+.toolbar-view li{
+	text-align: -webkit-match-parent;
+}
+.select{
+	display:inline-block;
+	height: auto;
+	background-color: #f0f0f0;
+	border: 1px solid #4e6361;
+	border-radius: 2px;
+	padding-right: 4px;
+ 
+}
+.select select{
+	display: inline-block;
+	width: 90px;
+	height: 30px;
+    vertical-align: middle;
+	color: #7088a9;
+	padding-right: 20px;
+	cursor: pointer;
+	background-color: #f0f0f0;
+	border: none;
+	line-height: 1;
+	border-radius:2px;
+
+}
+.formcontrol{
+	height: 36px;
+	padding: 8px 13px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: #7088a9;
+	background-color: #e8ecf3;
+	border-radius: 4px;
+	transition: border-color .15s,background .15s;
+
+}
+
+.refresh{
+	float: right;
+}
+
+/*discussion list*/
+
+ul{
+    list-style: none;
+
+}
+.dis-list{
+ margin-top: 40px;
+ height: 1500px;
+}
+
+.dis-list li{
+	
+	height: 80px;
+	/*border: 1px solid #ccc;*/
+	border-radius: 12px;
+	margin-bottom: 20px;
+}
+.dis-list li a{
+	text-decoration: none;
+	color: #000;
+}
+.dlic-head img{
+   
+	display: inline-block;
+	width: 60px;
+}
+.dis-list-item-content .dlic-head{
+	display: inline-block;
+	padding:10px 0 10px 0;
+}
+.dis-list-item:hover{
+   background-color: #ccc;
+}
+.icon-comments{
+	float: right;
+
+}
+.describe{
+	font-size: 12px;
+}
+/*menu*/
+.cd-menu{
+	position: fixed;
+	bottom: 45px;
+	right:50px;
+	width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    z-index: 199;
+}
+
+/*addQuerstio*/
+.addQuestion{
+      display: block;
+      position: fixed;
+      right: 1%;
+      left: 1%;
+      bottom: 0;
+      margin:0 auto;
+      width:800px;
+      height: 340px;
+      padding: 20px;
+      background-color: rgb(246, 249, 250);
+      border: 1px solid #777;
+      border-radius: 8px;
+      z-index: 1000;
+
+
+}
+.tableBasic{
+	background-color: #f9f9f9;
+	color: #666;
+	border: 1px dotted #ccc;
+	/*border-top: 1px dotted #ccc;*/
+}
+table{
+	display: table;
+	border-collapse: separate;
+	border-spacing: 2px;
+	border-color: grey;
+
+}
+td{
+	font-family: "微软雅黑";
+
+}
+#content{
+	width:576px;
+	height:180px;
+}
+#ask-submit{
+	float: right;
+
+}
+/*.select-cat{
+	width: 100%
+	height:100%
+    margin-left:120px;
+}*/
+.addQuestion button{
+	float: right;
+	margin-top: 10px;
+}
+#ask-btn{
+	margin-bottom: 10px;
+}

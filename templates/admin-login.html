@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>MkStone | 管理员登录</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<link href="css/login2.css" rel="stylesheet" type="text/css" />
+ <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/messages_zh.js"></script>
+
+</head>
+<body>
+<h1>管理员登录</h1>
+
+<div class="login" style="margin-top:50px;">
+    
+       
+  
+    
+    <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">    
+
+            <!--登录-->
+            <div class="web_login" id="web_login">
+               
+               
+               <div class="login-box">
+    
+            
+			<div class="login_form">
+				<form action="admin-login.php" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0"/>
+               <input type="hidden" name="to" value="log"/>
+                <div class="uinArea" id="uinArea">
+                <label class="input-tips"   for="u" >用户名：</label>
+                <div class="inputOuter" id="uArea">
+                    
+                    <input type="text" id="u" name="username" class="inputstyle required" placeholder="请输入用户名" autofocus="autofocus" />
+                </div>
+                </div>
+                
+                <div class="pwdArea" id="pwdArea">
+               <label class="input-tips" for="p">密&nbsp;&nbsp;&nbsp;码：</label> 
+               <div class="inputOuter" id="pArea">
+                    
+                    <input type="password" id="p" placeholder="请输入密码" name="password" class="inputstyle required"/>
+                </div>
+                </div>
+               
+                <div style="padding-left:60px;margin-top:20px;"><input type="submit" value="登 录" style="width:150px;" class="button_blue"/></div>
+              </form>
+     
+           </div>
+           
+            	</div>
+               
+            </div>
+            <!--登录end-->
+  </div>
+
+
+
+
+
+  
+             
+       <!--  <script>
+        
+            $("#regUser").validate();
+            
+        
+        </script>
+        <script>
+            
+                $("#login_form").validate();
+            
+        </script>
+ -->
+    </div>
+    </div>
+<script>
+$(function(){
+    $("#zcxy1").click(function(){
+
+        alert("用户注册成功后，网站将为用户基于服务使用的客观需要而在注册服务时，按照注册要求提供的帐号该用户帐号和密码由用户负责保管；用户使用微博服务过程中，须对自身使用微博服务的行为，对任何由用户通过微博服务服务发布、公开的信息，及对由此产生的任何后果承担全部责任。用户提交、发布或显示的信息将对其他微博服务用户及第三方服务及网站可见(用户可通过设置功能自行控制、把握可查阅其信息的帐号类型)");
+        return false;
+    })
+})
+</script> 
+<script>
+ function vForm(){
+    var x=document.forms["form2"]["password"].value;
+    var y=document.forms["form2"]["password2"].value;
+    if(x!=y){
+        alert("两次输入的密码不相同，请重新输入！");
+        location.href='login_register.html';
+    return false;
+    }
+    
+}
+</script>
+</body>
+</html>

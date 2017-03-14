@@ -1,0 +1,137 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About us</title>
+</head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/reveal-it.css">
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/about/ns.hover.js"></script>
+<script src="js/pageswitch.js"></script>
+<script src="js/about/reveal-it.js"></script>
+<script>
+$(document).ready(function(){
+
+  $("#x2").mouseenter(function(){
+      $("#x1").slideDown(200);
+      
+      
+
+  });
+  
+  $("#x2").mouseleave(function(){
+      $("#x1").slideUp(200);
+  });
+
+});
+</script>
+
+
+ 
+<body>
+    <div id="container" data-PageSwitch>
+        <div class="sections">
+            <div class="section active" id="section0">
+                <div class="intro">
+                    <h1 class="title"><span>Mk</span>Stone</h1>
+                    <div class="about-hr"></div>
+                    <p>旭<span style="color:#f00;">日</span>东升，我们如朝阳</p>
+                </div>
+            </div>
+            <!-- shitouboy's introduce -->
+            <div class="section" id="section1">
+                <div class="single-head" id="shitouge"><img  class="img-circle img-thumbnail"  src="images/about/shitouboy.gif" alt="">
+                <img class="jump" src="images/about/shitouge.gif" class="img-circle img-thumbnail"  alt="">
+                </div>
+                <div class="intro">
+                    <a href="http://www.石景宇.com/pages/about-me.html">石头Boy</a>
+                    <p>EE工程师，爱好CS，精通PHP、Python、linux, 喜欢开源技术，追求Geek精神。<br><br>石头哥负责本站的后台功能逻辑的实现，数据库的设计、构造，服务器环境的配置。</p>
+                     <a href="https://github.com/shijingyu" class="github-a"><img src="images/about/github_about.png" alt="" class="github-img"></a>
+                </div>
+            </div>
+            <!-- sofly's introduce -->
+            <div class="section" id="section2">
+
+                <div class="single-head" id=""><img class="img-circle img-thumbnail" src="images/open_photo_temp3.jpg" alt=""><p>soFly</p></div>
+                
+                <div class="intro">
+
+                    <h1 class="title"></h1>
+                    <p>Your are the owner of your career!</p>
+                    <a href="https://github.com/soFlyMan" class="github-a"><img src="images/about/github_about.png" alt="" class="github-img"></a>
+                    
+                </div>
+            </div>
+
+            
+            <!-- doubi's introduce -->
+            <div class="section" id="section3">
+                <div class="single-head">
+                    <img id="x1" src="images/1.png" style="display: none;">
+                    <img id="x2" src="images/yuchun.jpg" alt="" class="img-circle">
+                    <p>夏念军</p>
+                </div>
+                <div class="intro">
+                    <h1 class="title"></h1>
+                    <p>流逼爱喝牛奶，学习使我快乐</p>
+                    <a href="https://github.com/summer19940609" class="github-a"><img src="images/about/github_about.png" alt="" class="github-img"></a>
+                
+                
+               </div>
+               
+            </div>
+            <!-- gentleMan's introduce -->
+            <div class="section" id="section4">
+                <div class="single-head"><img src="images/single-head.png" alt=""><p>gentleMan</p></div>
+                <div class="intro">
+                    <h1 class="title"></h1>
+                    <p>我是gentleMan，有酒有故事</p>
+                    <a href="gentleMan.html" target="_blank" class="github-a"><img src="images/about/github_about.png" alt="" class="github-img"></a>
+                </div>
+            </div>
+
+            <div class="section active" id="section5">
+                <div class="intro">
+                    <h1 class="title">The end</h1>
+                    <div class="about-hr"></div>
+                    <p>悟已往之不谏，知来者之可追</p>
+                    <p>感谢您的关注</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+
+  $('#soFly-head').nsHover({
+      scaling : 0.8,
+      speed: 'normal',
+      rounded: 'normal',
+      bgcolor: '#ffffff',
+      bgopacity : 0.5,            
+      bgpic : '',
+      bgsize : '50%',
+      bganim : 'fade',
+      shadow : false,
+      content: ''
+  });
+  // $('#shitouge').nsHover({
+  //     scaling : 0.8,
+  //     speed: 'normal',
+  //     rounded: 'normal',
+  //     bgcolor: '#ffffff',
+  //     bgopacity : 0.5,            
+  //     bgpic : '',
+  //     bgsize : '50%',
+  //     bganim : 'fade',
+  //     shadow : false,
+  //     content: ''
+  // });
+</script> 
+
+
+</html>
