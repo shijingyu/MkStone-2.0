@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from PythonMkStone import views
+from django.conf.urls import url, include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,4 +29,5 @@ urlpatterns = [
     url(r'^login_register/', views.login_register),
     url(r'^email/', views.email),
     url(r'^admin_index/', views.admin_index),
+    url(r'^accounts/', include('users.urls'))
 ]
