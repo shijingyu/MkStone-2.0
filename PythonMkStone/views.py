@@ -1,6 +1,8 @@
 #coding:utf-8
 from django.shortcuts import render
+
 from django.http import HttpResponse
+
 
 # Create your views here.
 def index(request):
@@ -21,3 +23,9 @@ def email(request):
     return render(request, 'sendemail.html')
 def admin_index(request):
     return render(request, 'admin_index.html')
+
+
+from PythonMkStone.models import Categories
+
+cate = Categories(name='Linux')
+cate.save()
