@@ -2,23 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <title>MkStone | 管理员登录</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
-<link href="css/login2.css" rel="stylesheet" type="text/css" />
+    {% load staticfiles %}
+<script type="text/javascript" src="{% static "PythonMkStone/js/jquery-1.9.0.min.js"%}"></script>
+<script type="text/javascript" src="{% static "PythonMkStone/js/login.js" %}"></script>
+<link href="{% static "PythonMkStone/css/login2.css" %}" rel="stylesheet" type="text/css" />
  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/messages_zh.js"></script>
+  <script type="text/javascript" src="{% static "PythonMkStone/js/jquery.validate.min.js" %}"></script>
+<script type="text/javascript" src="{% static "PythonMkStone/js/messages_zh.js" %}"></script>
 
 </head>
 <body>
 <h1>管理员登录</h1>
 
 <div class="login" style="margin-top:50px;">
-    
-       
-  
-    
-    <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">    
+    <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">
 
             <!--登录-->
             <div class="web_login" id="web_login">

@@ -1,0 +1,84 @@
+{% include 'admin_base.html' %}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">MkStone   管理中心<b>></b><strong>资源列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="/addres" class="actionBtn add">添加资源</a>资源列表</h3>
+
+        <div id="list">
+    <form name="action" method="post" action="res.html?rec=action">
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+        <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
+        <th width="120" align="center">资源名称</th>
+        <th width="100" align="center">更新时间</th>
+        <th width="350" align="center">资源链接</th>
+        <th width="100" align="center">资源分类</th>
+        <th width="100" align="center">资源密码</th>
+        <th width="100" align="center">资源售价</th>
+        <th width="100" align="center">资源销量</th>
+        <th width="80" align="center">操作</th>
+      </tr>
+
+{% for rshow in rshows %}
+<tr><td align='center'><input type='checkbox' name='checkbox[]'  /></td><td align='center'>{{ rshow.resname }}</td><td align='left'>{{ rshow.uptime }}</td><td align='left'>{{ rshow.http }}</td><td align='center'>{{ rshow.resclass }}</td><td align='center'>{{ rshow.rpassword }}</td><td align='left'>{{ rshow.price }}</td><td align='center'>{{ rshow.prow }}</td><td align='center'><a href='delete.php?action2=del&resid=".$row["rid"]."'>删除</a></td></tr>
+
+
+ {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+          </table>
+    <div class="action">
+     <select name="action" onchange="douAction()">
+      <option value="0">请选择...</option>
+      <option value="del_all">删除</option>
+      <option value="category_move">移动分类至</option>
+     </select>
+     <select name="new_cat_id" style="display:none">
+      <option value="0">未分类</option>
+                  <option value="安卓">安卓</option>
+                        <option value="苹果">苹果</option>
+                        <option value="电脑">电脑</option>
+
+                 </select>
+     <input name="submit" class="btn" type="submit" value="执行" />
+    </div>
+    </form>
+    </div>
+    <div class="clear"></div>
+    <div class="pager">总计 15 个记录，共 1 页，当前第 1 页 | <a href="res.html?page=1">第一页</a> 上一页 下一页 <a href="res.html?page=1">最末页</a></div>               </div>
+ </div>
+ <div class="clear"></div>
+<div id="dcFooter">
+ <div id="footer">
+  <div class="line"></div>
+  <ul>
+   版权所有 © 2016 MkStone，并保留所有权利。
+  </ul>
+ </div>
+</div><!-- dcFooter 结束 -->
+<div class="clear"></div> </div>
+<script type="text/javascript">
+
+onload = function()
+{
+ document.forms['action'].reset();
+}
+
+function douAction()
+{
+ var frm = document.forms['action'];
+ frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
+}
+
+</script>
+</body>
+</html>

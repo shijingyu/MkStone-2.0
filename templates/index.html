@@ -5,12 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>mkStone</title>
+    <title>MkStone</title>
     <!-- Bootstrap -->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    {% load staticfiles %}
+
+    <link rel="stylesheet" href="{% static "PythonMkStone/css/index.css" %}">
     <!-- <link rel="stylesheet" href="css/jqhover.css"> -->
-    <link rel="stylesheet" href="fonts/BRUSHSCRIPTSTD.OTF">
+    <link rel="stylesheet" href="{% static "PythonMkStone/fonts/BRUSHSCRIPTSTD.OTF" %}">
 </head>
 
 <body>
@@ -24,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" style="padding-top:6px;padding-bottom:0px;" href="index.html"><img src="images/artical_03.png" alt=""></a>
+                <a class="navbar-brand" style="padding-top:6px;padding-bottom:0px;" href="index.html"><img src="{% static "PythonMkStone/images/artical_03.png" %}" alt=""></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -36,14 +38,14 @@
       </form> -->
                 <ul class="nav navbar-nav navbar-right ">
                     <!--         <li><div style="margin-right:30px" type="button" class="btn btn-default navbar-btn"><a href="login_register.html">Sign in</a></div></li>
- --><a href="about.html" class="navbar-brand" id="navbar-r" target="_blank">About us</a>
+ --><a href="/about" class="navbar-brand" id="navbar-r" target="_blank">About us</a>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <aside id="index-aside" style="background-image:url(images/index-re_01.png)">
+    <aside id="index-aside" style="background-image:url({% static "PythonMkStone/images/index-re_01.png" %})">
         <div class="container">
             <div class="index-d">
                 <p id="describe-1">欢迎来到<span id="mk">Mk</span><span>Stone</span></p>
@@ -65,7 +67,7 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <p>本站由一个4人团队打造，功能正在不断完善中，如果您喜欢随时都可以来看看，见证我们的成长^-^</p>
+                                <p>MkStone 2.0 重构了后台结构和数据库，采用最优雅的框架Django和MongoDB，给大家带来全新的体验</p>
                                 <br>
                                 <br>
                                 <br>
@@ -102,7 +104,7 @@
     <span class="sr-only">Next</span>
   </a> -->
                     </div>
-                    <!-- <h2>mkStone网站正在搭建中……</h2> -->
+                    <!-- <h2>mkStone网站正在完善中……</h2> -->
                     <div type="button" data-toggle="modal" data-target="#myModal" class="btn btn-outline btn-lg" id="update-txt">更新日志</div>
                 </div>
             </div>
@@ -122,13 +124,13 @@
                                 <figure style="width:210px;">
                                     <div class="jqhover-main">
                                         <div class="jqhover-border"><div class="jqhover-ns">
-                                            <a href="article.php"><img src="images/article.png" alt="img05"></a>
+                                            <a href="/article"><img src="{% static "PythonMkStone/images/article.png" %}" alt="img05"></a>
                                             </div>
                                             <p class="fun-name">文章分享</p>
                                         </div>
                                         <div class="fun-describe">
                                             <p>不定时更新网络趋势、科技前沿、技术心得等相关文章。</p>
-                                            <p class="getmore"><a href="article.php">获取更多></a></p>
+                                            <p class="getmore"><a href="/article">获取更多></a></p>
                                         </div>
                                     </div>
                                 </figure>
@@ -141,13 +143,13 @@
                                 <figure style="width:210px;">
                                     <div class="jqhover-main">
                                         <div class="jqhover-border"><div class="jqhover-ns">
-                                            <a href="download.php"><img src="images/download.png" alt="img05"></a>
+                                            <a href="/res"><img src="{% static "PythonMkStone/images/download.png" %}" alt="img05"></a>
                                             </div>
                                             <p class="fun-name">资源下载</p>
                                         </div>
                                         <div class="fun-describe">
                                             <p>提供各种免费、实用的插件，下载工具，办公软件等。</p>
-                                            <p class="getmore"><a href="download.php">获取更多></a></p>
+                                            <p class="getmore"><a href="/res">获取更多></a></p>
                                         </div>
                                     </div>
                                 </figure>
@@ -160,13 +162,13 @@
                                 <figure style="width:210px;">
                                     <div class="jqhover-main">
                                         <div class="jqhover-border"><div class="jqhover-ns">
-                                            <a href="ask.html"><img class="ns1" src="images/ask.png" alt="img05"></a>
+                                            <a href="/ask"><img class="ns1" src="{% static "PythonMkStone/images/ask.png" %}" alt="img05"></a>
                                             </div>
                                             <p class="fun-name">问题讨论</p>
                                         </div>
                                         <div class="fun-describe">
                                             <p>一个专门的问题交流版块，在这里畅所欲言，结交更多爱学习的伙伴！</p>
-                                            <p class="getmore"><a href="ask.html">获取更多></a></p>
+                                            <p class="getmore"><a href="/ask">获取更多></a></p>
                                         </div>
                                     </div>
                                 </figure>
@@ -180,12 +182,12 @@
                                     <div class="jqhover-main">
                                         <div class="jqhover-border">
                                         <div class="jqhover-ns">
-                                            <a href="index.html"><img src="images/other.png" alt="img05"></a></div>
-                                            <p class="fun-name">其他</p>
+                                            <a href="/video"><img src="{% static "PythonMkStone/images/other.png" %}" alt="img05"></a></div>
+                                            <p class="fun-name">视频解析</p>
                                         </div>
                                         <div class="fun-describe">
-                                            <p>开发人员正紧急开发中，尽请期待！</p>
-                                            <p class="getmore"><a href="other.html">获取更多></a></p>
+                                            <p>全网视频会员解析免费观看，支持1080P无广告无会员</p>
+                                            <p class="getmore"><a href="/index">获取更多></a></p>
                                         </div>
                                     </div>
                                 </figure>
@@ -214,12 +216,12 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="images/lb1.jpg" alt="...">
+                            <img src="{% static "PythonMkStone/images/lb1.jpg" %}" alt="...">
                             <div class="carousel-caption">
                             </div>
                         </div>
                         <div class="item">
-                            <img src="images/lb2.jpg" alt="...">
+                            <img src="{% static "PythonMkStone/images/lb2.jpg" %}" alt="...">
                             <div class="carousel-caption">
                             </div>
                         </div>
@@ -240,10 +242,10 @@
     <footer class="index-footer">
         <div class="footer1">
             <p>Copyright © 2016. <span><a href="">赞助我们</a></span>
-                <span class="github-span"><a href="https://github.com/mkStone/mmkk" target="_blank"><img src="images/github.png" alt=""></span>
+                <span class="github-span"><a href="https://github.com/shijingyu/MkStone-2.0" target="_blank"><img src="{% static "PythonMkStone/images/github.png"%}" alt=""></span>
                 </a>
+                <a class="author" href="http://www.石景宇.com" target="_blank">Stone</a>
                 <a class="author" href="http://soflyman.com" target="_blank">soFly</a>
-                <a class="author" href="http://www.石景宇.com" target="_blank">stboy</a>
                 <a class="author" href="http://xianianjun.cn" target="_blank">doubi</a>
                 <a class="author" href="index.html" target="_blank">gentlemen</a>
                 <a class="author" href="about.html" target="_blank">about</a>
@@ -276,9 +278,9 @@
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <!-- <script src="js/modernizr.custom.js"></script> -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/index.js"></script>
-<script src="js/about/ns.hover.js"></script>
+<script src="{% static "PythonMkStone/js/bootstrap.min.js" %}"></script>
+<script src="{% static "PythonMkStone/js/index.js" %}"></script>
+<script src="{% static "PythonMkStone/js/about/ns.hover.js" %}"></script>
 
 <script>
   $('.jqhover-ns').nsHover({

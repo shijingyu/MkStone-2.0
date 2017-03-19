@@ -1,0 +1,76 @@
+
+ <!-- 侧边栏开始 -->
+ <ul class="sidebar">
+    <li class="li2">
+      <a href="">收藏</a>
+    </li>
+    <li class="li3">
+      <a href="">热门</a>
+    </li>
+    <li class="li4">
+      <a href="">热词</a>
+    </li>
+    <li class="li5">
+      <a href="">搜索</a>
+    </li>
+    <li class="li6">
+      <a href="">咨询</a>
+    </li>
+    <li class="li7" id="gotop"></li>
+  </ul>  
+<!-- 侧边栏-end -->
+
+
+
+
+
+
+
+
+
+ <!-- 底部开始 -->
+ <footer>
+   <div class="container">
+     <p>Copyright © 2016 MkStone  All rights reserved. <span><a href="about.html">赞助</a></span></p>
+   </div>
+ </footer>
+ <!-- 底部结束 -->
+
+
+
+ 
+
+
+
+
+
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    {% load staticfiles %}
+    <script src="{% static "PythonMkStone/js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "PythonMkStone/js/masonry-docs.min.js" %}"></script>
+     <!--  侧边栏js -->
+<script>
+$(document).ready(function(){
+  $("#gotop").click(function(){
+  $("html,body").animate({scrollTop:0},300);
+});
+})
+</script>
+
+<script>
+  
+$(function() {
+    var $container = $('#masonry');
+    $container.imagesLoaded(function() {
+        $container.masonry({
+                itemSelector: '.box',
+                gutter: 20,
+                isAnimated: true,
+            });
+     });
+});
+</script>
+
+  </body>
+</html>

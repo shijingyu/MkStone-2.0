@@ -16,18 +16,27 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from PythonMkStone import views
-from django.conf.urls import url, include
+from django.conf.urls import url
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index/', views.index),
     url(r'^about/', views.about),
     url(r'^res/', views.res),
+    url(r'^res2/', views.res2),
+    url(r'^addres/', views.addres),
+    url(r'^res_show/',views.res_show),
     url(r'^article/', views.article),
     url(r'^ask/', views.ask),
     url(r'^video/', views.video),
+    url(r'^admin-login', views.admin_login),
     url(r'^login_register/', views.login_register),
     url(r'^email/', views.email),
     url(r'^admin_index/', views.admin_index),
-    url(r'^accounts/', include('users.urls'))
+    #url(r'^accounts/', include('users.urls')),
+    url(r'^addarticle/', views.addarticle),
+    url(r'^article_show/', views.article_show),
+    url(r'^AddArticleForm/', views.AddArticleForm),
+    url(r'^AddResForm/', views.AddResForm),
+
 ]

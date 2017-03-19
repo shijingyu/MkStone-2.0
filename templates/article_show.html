@@ -1,0 +1,73 @@
+{% include 'admin_base.html' %}
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">MkStone 管理中心<b>></b><strong>文章列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="/addarticle" class="actionBtn add">添加文章</a>文章列表</h3>
+    
+
+    <form name="action" method="get" action="/deletearticle">
+
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+     <tr>
+      <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
+      <th width="150" align="center">文章名称</th>
+      <th width="60" align="left">文章分类</th>
+      <th width="60" align="left">作者</th>
+      <th width="120" align="left">上传时间</th>
+      <th width="80" align="left">浏览量</th>
+      <th width="80" align="center">操作</th>
+     </tr>
+{% for ashow in ashows %}
+ <tr><td align='center'><input type='checkbox' name='checkbox[]'  /></td><td align='center'>{{ ashow.aname }}</td><td align='left'>{{ ashow.aclass }}</td><td align='left'>{{ ashow.author }}</td><td align='left'>{{ ashow.auptime }}</td><td align='left'>{{ ashow.watch }}</td><td align='center'><a href='deletearticle?action=del&aname="{{ ashow.aname }}"'>删除</a></td></tr>
+ 
+
+       {% endfor %}
+         </table>
+
+    <div class="action">
+     <select name="action" onchange="douAction()">
+      <option value="0">请选择...</option>
+      <option value="del_all">删除</option>
+      <option value="category_move">移动分类至</option>
+     </select>
+     <select name="new_cat_id" style="display:none">
+      <option value="0">未分类</option>
+                  <option value="数码">数码</option>
+                        <option value="安卓">安卓</option>
+         <option value="苹果">苹果</option>
+         <option value="电脑">电脑</option>
+                 </select>
+     <input name="submit" class="btn" type="submit" value="执行" />
+    </div>
+    </form>
+    </div>
+    <div class="clear"></div>
+    <div class="pager">总计 10 个记录，共 1 页，当前第 1 页 | <a href="article_show.php?page=1">第一页</a> 上一页 下一页 <a href="article_show.php?page=1">最末页</a></div>           </div>
+ </div>
+ <div class="clear"></div>
+<div id="dcFooter">
+ <div id="footer">
+  <div class="line"></div>
+  <ul>
+   版权所有 © 2016 MkStone，并保留所有权利 。
+  </ul>
+ </div>
+</div><!-- dcFooter 结束 --> 
+<div class="clear"></div> </div>
+ <script type="text/javascript">
+ 
+ onload = function()
+ {
+   document.forms['action'].reset();
+ }
+
+ function douAction()
+ {
+     var frm = document.forms['action'];
+
+     frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
+ }
+ 
+ </script>
+</body>
+</html>

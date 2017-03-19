@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <title>About us</title>
 </head>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/about.css">
-<link rel="stylesheet" href="css/reveal-it.css">
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "PythonMkStone/css/bootstrap.min.css" %}">
+<link rel="stylesheet" href="{% static "PythonMkStone/css/about.css" %}">
+{#<link rel="stylesheet" href="{% static "PythonMkStone/css/reveal-it.css" %}">#}
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/about/ns.hover.js"></script>
-<script src="js/pageswitch.js"></script>
-<script src="js/about/reveal-it.js"></script>
+<script src="{% static "PythonMkStone/js/about/ns.hover.js" %}"></script>
+<script src="{% static "PythonMkStone/js/pageswitch.js" %}"></script>
+{#<script src="{% static "PythonMkStone/js/about/reveal-it.js" %}"></script>#}
 <script>
 $(document).ready(function(){
 
@@ -43,25 +44,27 @@ $(document).ready(function(){
             </div>
             <!-- shitouboy's introduce -->
             <div class="section" id="section1">
-                <div class="single-head" id="shitouge"><img  class="img-circle img-thumbnail"  src="images/about/shitouboy.gif" alt="">
-                <img class="jump" src="images/about/shitouge.gif" class="img-circle img-thumbnail"  alt="">
+                <div class="single-head" id="shitouge"><img class="img-circle img-thumbnail" src="{% static "PythonMkStone/images/about/shitouboy.gif" %}" alt="">
+                <img class="jump" src="{% static "PythonMkStone/images/about/shitouge.gif" %}" class="img-circle img-thumbnail" alt="">
                 </div>
                 <div class="intro">
                     <a href="http://www.石景宇.com/pages/about-me.html">石头Boy</a>
-                    <p>EE工程师，爱好CS，精通PHP、Python、linux, 喜欢开源技术，追求Geek精神。<br><br>石头哥负责本站的后台功能逻辑的实现，数据库的设计、构造，服务器环境的配置。</p>
-                     <a href="https://github.com/shijingyu" class="github-a"><img src="images/about/github_about.png" alt="" class="github-img"></a>
+                    <p>Stone，石头Boy，石头哥。</p>
+                    <p>EE专业，CS爱好者，致力于CSer中最厉害的EEer，EEer中最厉害的CSer，传闻最后，卒。</p>
+                     <a href="https://github.com/shijingyu" class="github-a"><img src="{% static "PythonMkStone/images/about/github_about.png" %}" alt="" class="github-img"></a>
                 </div>
             </div>
             <!-- sofly's introduce -->
             <div class="section" id="section2">
 
-                <div class="single-head" id=""><img class="img-circle img-thumbnail" src="images/open_photo_temp3.jpg" alt=""><p>soFly</p></div>
+                <div class="single-head" id=""><img class="img-circle img-thumbnail" src="{% static "PythonMkStone/images/open_photo_temp3.jpg" %}" alt=""><p>soFly</p></div>
                 
                 <div class="intro">
 
                     <h1 class="title"></h1>
+                    <p>soFly, 精通React，node.js 前端大神，名如其人，玄学家！</p>
                     <p>Your are the owner of your career!</p>
-                    <a href="https://github.com/soFlyMan" class="github-a"><img src="images/about/github_about.png" alt="" class="github-img"></a>
+                    <a href="https://github.com/soFlyMan" class="github-a"><img src="{% static "PythonMkStone/images/about/github_about.png" %}" alt="" class="github-img"></a>
                     
                 </div>
             </div>
@@ -70,14 +73,15 @@ $(document).ready(function(){
             <!-- doubi's introduce -->
             <div class="section" id="section3">
                 <div class="single-head">
-                    <img id="x1" src="images/1.png" style="display: none;">
-                    <img id="x2" src="images/yuchun.jpg" alt="" class="img-circle">
+                    <img id="x1" src="{% static "PythonMkStone/images/1.png" %}" style="display: none;">
+                    <img id="x2" src="{% static "PythonMkStone/images/yuchun.jpg" %}" alt="" class="img-circle">
                     <p>夏念军</p>
                 </div>
                 <div class="intro">
                     <h1 class="title"></h1>
                     <p>流逼爱喝牛奶，学习使我快乐</p>
-                    <a href="https://github.com/summer19940609" class="github-a"><img src="images/about/github_about.png" alt="" class="github-img"></a>
+                    <p>俗称逗比，精通JAVA Web 和 CSGO打。枪。枪。</p>
+                    <a href="https://github.com/summer19940609" class="github-a"><img src="{% static "PythonMkStone/images/about/github_about.png" %}" alt="" class="github-img"></a>
                 
                 
                </div>
@@ -85,11 +89,12 @@ $(document).ready(function(){
             </div>
             <!-- gentleMan's introduce -->
             <div class="section" id="section4">
-                <div class="single-head"><img src="images/single-head.png" alt=""><p>gentleMan</p></div>
+                <div class="single-head"><img src="{% static "PythonMkStone/images/single-head.png" %}" alt=""><p>gentleMan</p></div>
                 <div class="intro">
                     <h1 class="title"></h1>
                     <p>我是gentleMan，有酒有故事</p>
-                    <a href="gentleMan.html" target="_blank" class="github-a"><img src="images/about/github_about.png" alt="" class="github-img"></a>
+                    <p>gentleMan,绅士。 UI设计灵感爆棚。</p>
+                    <a href="gentleMan.html" target="_blank" class="github-a"><img src="{% static "PythonMkStone/images/about/github_about.png" %}" alt="" class="github-img"></a>
                 </div>
             </div>
 

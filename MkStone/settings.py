@@ -1,3 +1,4 @@
+#coding:utf-8
 """
 Django settings for MkStone project.
 
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'PythonMkStone',
     'users',
-    'mongoengine',
 ]
 AUTH_USER_MODEL = 'users.User'
 MIDDLEWARE = [
@@ -76,14 +76,22 @@ WSGI_APPLICATION = 'MkStone.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
+#
+# from mongoengine import *
+# #
+# connect('shijingyu')
 
 
 DATABASES = {
     # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'hahaha',
+    #     'USER':'root',
+    #     'HOST':'',
+    #     'PASSWORD':'',
+    #     'PORT':'',
     # }
+
 }
 
 
@@ -124,3 +132,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+#
+# STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+# TATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "common_static"),
+#     '/path/to/others/static/',  # 用不到的时候可以不写这一行
+# )
+# STATICFILES_FINDERS = (
+#     "django.contrib.staticfiles.finders.FileSystemFinder",
+#     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+# )

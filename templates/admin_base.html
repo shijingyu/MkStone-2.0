@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MkStone 管理中心</title>
+<meta name="Copyright" content="Douco Design." />
+    {% load staticfiles %}
+
+    <link href="{% static "PythonMkstone/css/public.css"  %}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{% static "PythonMkStone/js/jquery.min.js" %}"></script>
+<script type="text/javascript" src="{% static "PythonMkStone/js/global.js" %}"></script>
+</head>
+<body>
+<div id="dcWrap"> <div id="dcHead">
+ <div id="head">
+  <div class="logo"><a href="index.html"><img src="{% static "PythonMkStone/images/dclogo.gif" %}" alt="logo"></a></div>
+  <div class="nav">
+   <ul>
+    <li class="M"><a href="JavaScript:void(0);" class="topAdd">新建</a>
+     <div class="drop mTopad"><a href="/addres">资源</a> <a href="/addarticle">文章</a>  <a href="#">管理员</a> <a href="/link"></a> </div>
+    </li>
+    <li><a href="index.html" target="_blank">查看站点</a></li>
+    <li class="noRight"><a href="about.html">MkStone+</a></li>
+   </ul>
+   <ul class="navRight">
+    <li class="M noLeft"><a href="JavaScript:void(0);">您好，{{ request.user }}</a>
+     <div class="drop mUser">
+      <a href="#">编辑我的个人资料</a>
+
+     </div>
+    </li>
+    <li class="noRight"><a href="login.php?rec=logout">退出</a></li>
+   </ul>
+  </div>
+ </div>
+</div>
+<!-- dcHead 结束 --> <div id="dcLeft"><div id="menu">
+ <ul class="top">
+  <li><a href="/admin_index"><i class="home"></i><em>管理首页</em></a></li>
+ </ul>
+
+   <ul>
+
+  <li><a href="/res_show"><i class="product"></i><em>资源列表</em></a></li>
+ </ul>
+  <ul>
+  <li><a href="/article_show"><i class="article"></i><em>文章列表</em></a></li>
+ </ul>
+  <ul>
+  <li><a href="/usename"><i class="usename"></i><em>会员列表</em></a></li>
+ </ul>
+   <ul class="bot">
+  <li><a href="/backup"><i class="backup"></i><em>数据备份</em></a></li>
+
+  <li><a href="/manager"><i class="manager"></i><em>网站管理员</em></a></li>
+  <li><a href="/manager_log"><i class="managerLog"></i><em>操作记录</em></a></li>
+ </ul>
+</div></div>

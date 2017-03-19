@@ -9,6 +9,7 @@ from .conf import settings
 from .managers import UserInheritanceManager, UserManager
 
 
+
 class AbstractUser(AbstractBaseUser, PermissionsMixin):
     USERS_AUTO_ACTIVATE = not settings.USERS_VERIFY_EMAIL
 
