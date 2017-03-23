@@ -2,16 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <title>MkStone | 注册登录</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script type="text/javascript" src="../PythonMkStone/static/PythonMkStone/js/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="../PythonMkStone/static/PythonMkStone/js/login.js"></script>
-<link href="../PythonMkStone/static/PythonMkStone/css/login2.css" rel="stylesheet" type="text/css" />
+    {% load staticfiles %}
+
+<script type="text/javascript" src="{% static "PythonMkStone/js/jquery-1.9.0.min.js" %}"></script>
+<script type="text/javascript" src="{% static "PythonMkStone/js/login.js" %}"></script>
+<link href="{% static "PythonMkStone/css/login2.css" %}" rel="stylesheet" type="text/css" />
  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javascript" src="../PythonMkStone/static/PythonMkStone/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="../PythonMkStone/static/PythonMkStone/js/messages_zh.js"></script>
+  <script type="text/javascript" src="{% static "PythonMkStone/js/jquery.validate.min.js" %}"></script>
+<script type="text/javascript" src="{% static "PythonMkStone/js/messages_zh.js" %}"></script>
 
 </head>
 <body>
+
 <h1>MkStone | 注册登录</h1>
+<script>
+
+    $().ready(function() {
+        $("#regUser").validate();
+
+    });
+</script>
 
 <div class="login" style="margin-top:50px;">
     
@@ -21,7 +31,8 @@
         </div>
     </div>    
   
-    
+
+
     <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">    
 
             <!--登录-->
@@ -32,8 +43,10 @@
     
             
 			<div class="login_form">
-				<form action="/login_register/" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0"/>
-               <input type="hidden" name="to" value="log"/>
+				<form action="/login/" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0"/>
+               {% csrf_token %}
+                    <input type="hidden" name="to" value="log"/>
+
                 <div class="uinArea" id="uinArea">
                 <label class="input-tips"   for="u" >用户名：</label>
                 <div class="inputOuter" id="uArea">
@@ -51,6 +64,9 @@
                 </div>
                
                 <div style="padding-left:60px;margin-top:20px;"><input type="submit" value="登 录" style="width:150px;" class="button_blue"/></div>
+
+
+
               </form>
      
            </div>
@@ -69,7 +85,9 @@
     <div class="qlogin" id="qlogin" style="display: none; ">
    
     <div class="web_login">
-    <form name="form2" id="regUser" accept-charset="utf-8" onsubmit="return vForm()" action="MkStone_Signup.php" method="post">
+    <form name="form2" id="regUser" accept-charset="utf-8" onsubmit="return vForm()" action="/logup/" method="post">
+{#        <fieldset>#}
+        {% csrf_token %}
 	      <input type="hidden" name="to" value="reg"/>
 		      		       <input type="hidden" name="did" value="0"/>
         <ul class="reg_form" id="reg-ul">
@@ -79,7 +97,7 @@
                 <li>
                     <label for="user"  class="input-tips2">用户名：</label>
                     <div class="inputOuter2">
-                        <input type="text" id="username" name="username" minlength="6"  maxlength="16" placeholder="请输入用户名" autofocus="autofocus" class="inputstyle2 required"/>
+                        <input type="text" id="username" name="username" minlength="6"  maxlength="16" placeholder="MkStone支持中文用户名" autofocus="autofocus" class="inputstyle2 required"/>
                     </div>
                     
                 </li>
@@ -95,7 +113,7 @@
                 <li>
                 <label for="passwd" class="input-tips2">密码：</label>
                     <div class="inputOuter2">
-                        <input type="password" id="password"  placeholder="请输入密码" name="password" maxlength="16" class="inputstyle2 required"/>
+                        <input type="password" id="password"  placeholder="请输入密码" name="password" minlength="6" maxlength="16" class="inputstyle2 required"/>
                     </div>
 
                      <!-- 两个密码必须一致 -->
@@ -103,20 +121,20 @@
                 <li>
                 <label for="passwd2" class="input-tips2">确认密码：</label>
                     <div class="inputOuter2">
-                        <input type="password" id="password2" placeholder="请输入密码" name=""  maxlength="16" class="inputstyle2 " />
+                        <input type="password" id="password2" placeholder="请输入密码" name="" minlength="6" maxlength="16" class="inputstyle2 " />
                     </div>
                     
                 </li>
 
-                    <!-- qq位数最多10，必填 -->
-                <li>
-                 <label for="qq" class="input-tips2">QQ：</label>
-                    <div class="inputOuter2">
-                       
-                        <input type="text" id="qq" name="qq" placeholder="请输入QQ" maxlength="10"   class="inputstyle2 required number"/>
-                    </div>
-                   
-                </li>
+{#                    <!-- qq位数最多10，必填 -->#}
+{#                <li>#}
+{#                 <label for="qq" class="input-tips2">QQ：</label>#}
+{#                    <div class="inputOuter2">#}
+{#                       #}
+{#                        <input type="text" id="qq" name="qq" placeholder="请输入QQ" minlength="5" maxlength="10"   class="inputstyle2 required number"/>#}
+{#                    </div>#}
+{#                   #}
+{#                </li>#}
 
                     <!-- 点击注册协议弹出 -->
                 <li>
@@ -125,7 +143,9 @@
                     </div>
                     
                 </li><div class="cl"></div>
-            </ul></form>
+            </ul>
+{#        </fieldset>#}
+    </form>
              
        <!--  <script>
         
@@ -141,16 +161,18 @@
  -->
     </div>
     </div>
+
 <script>
 $(function(){
     $("#zcxy1").click(function(){
 
-        alert("用户注册成功后，网站将为用户基于服务使用的客观需要而在注册服务时，按照注册要求提供的帐号该用户帐号和密码由用户负责保管；用户使用微博服务过程中，须对自身使用微博服务的行为，对任何由用户通过微博服务服务发布、公开的信息，及对由此产生的任何后果承担全部责任。用户提交、发布或显示的信息将对其他微博服务用户及第三方服务及网站可见(用户可通过设置功能自行控制、把握可查阅其信息的帐号类型)");
+        alert("用户注册成功后,网站将为用户基于服务使用的客观需要而在注册服务时，按照注册要求提供的帐号该用户帐号和密码由用户负责保管；用户使用MkStone服务过程中，须对自身使用MkStone服务的行为，对任何由用户通过MkStone服务服务发布、公开的信息，及对由此产生的任何后果承担全部责任。用户提交、发布或显示的信息将对其他MkStone服务用户及第三方服务及网站可见(用户可通过设置功能自行控制、把握可查阅其信息的帐号类型)");
         return false;
     })
 })
 </script> 
 <script>
+
  function vForm(){
     var x=document.forms["form2"]["password"].value;
     var y=document.forms["form2"]["password2"].value;
@@ -162,5 +184,6 @@ $(function(){
     
 }
 </script>
+
 </body>
 </html>

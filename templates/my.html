@@ -1,0 +1,14 @@
+{% include 'nav-signin.html' %}
+<h1>                     个人资料</h1>
+
+<p class='dec2'>
+    <span>
+        用户名: {{ request.user }}
+
+
+    </span>
+                    </p>
+<p>上次登陆: {{ request.user.last_login }}</p>
+<p>
+    注册邮箱：{{ request.user.email }}
+</p>

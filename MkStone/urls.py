@@ -38,5 +38,17 @@ urlpatterns = [
     url(r'^article_show/', views.article_show),
     url(r'^AddArticleForm/', views.AddArticleForm),
     url(r'^AddResForm/', views.AddResForm),
+    url(r'^login/', views.login),
+    url(r'^login_error', views.login_error),
+    url(r'^logup/', views.logup),
+    url(r'^logup_success/', views.login_register),
+    url(r'^login_again/',views.login_again),
+    url(r'^usename/', views.usename),
+    url(r'^login_success/', views.login_success),
+    #url(r'^mongonaut/', include('mongonaut.url')),
+    url(r'^logout/', views.logout),
+    url(r'^my/',views.my),
+    url(r'^token_error/', views.token_error)
+
 
 ]

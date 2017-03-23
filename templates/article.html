@@ -1,4 +1,8 @@
-{% include 'nav-nosignin.html' %}
+{% if request.user.is_authenticated %}
+    {% include 'nav-signin.html' %}
+{% else %}
+    {% include 'nav-nosignin.html' %}
+{% endif %}
 
  <!-- 主体内容开始 -->
 

@@ -1,5 +1,10 @@
-{% include 'nav-nosignin.html' %}
-
+{% if request.user.is_authenticated %}
+    {% include 'nav-signin.html' %}
+{% else %}
+    {% include 'nav-nosignin.html' %}
+{% endif %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static "PythonMkStone/js/jquery-1.9.0.min.js" %}"></script>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -42,13 +47,28 @@
                         <span>上传时间</span>：{{ re.uptime }} &nbsp;<span>软件类型</span>：{{ re.resclass }} <br>
                         <span>售价</span>：{{ re.price }}&nbsp; &nbsp;&nbsp; &nbsp;<span>销量</span>：{{ re.prow }}
                     </p>
-                    <a href='res2.html?action3=down&resid=".$row[rid]."'>
-                      <button type='button' class='btn btn-primary'>购买密码</button>
+                    <a>
+                      <button id='getpassword' type='button' class='btn btn-primary'>获取密码</button>
                     </a>
-                   
+
                   </div>
                 </div>
+          {% if request.user.is_authenticated %}
+                <script>     $(function(){
+                    $("#getpassword").click(function(){
+                        alert("                                          {{ re.rpassword }}");
+                        return false;
+                            })
+                                })</script>
+                {% else %}
+                        <script>     $(function(){
+                    $("#getpassword").click(function(){
+                        alert("                                请登陆后查看        ");
+                        return false;
+                            })
+                                })</script>
 
+            {% endif %}
 
 {% endfor %}
 

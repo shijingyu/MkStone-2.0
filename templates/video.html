@@ -1,10 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% if request.user.is_authenticated %}
+    {% include 'nav-signin.html' %}
+{% else %}
+    {% include 'nav-nosignin.html' %}
+{% endif %}
+{% load staticfiles %}
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>MkStone视频解析</title>
 
-</body>
+    <!-- Bootstrap -->
+ 	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static "PythonMkStone/css/waterfall.css" %}">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    	body{
+    		margin-top: 80px;
+    	}
+    	.support{
+    		margin-top: 30px;
+    	}
+    	.content{
+    		height: 300px;
+
+    	}
+    	.content .text{
+    		height:280px;
+    		padding: 120px;
+    	}
+    	.content .lianjie{
+    		padding-left: 32px;
+    		color: #777;
+    		font-size: 20px;
+    	}
+
+    </style>
+  </head>
+  <body>
+  <script type="text/javascript">
+	function addBookmark(url, title){
+	if (!url) {url = window.location}
+	    if (!title) {title = document.title}
+	    var browser=navigator.userAgent.toLowerCase();
+	    if (window.sidebar) { // Mozilla, Firefox, Netscape
+	        window.sidebar.addPanel(title, url,"");
+	    } else if( window.external) { // IE or chrome
+	        if (browser.indexOf('chrome')==-1){ // ie
+	            window.external.AddFavorite( url, title);
+	        } else { // chrome
+	            alert('请按 CTRL+D (or Command+D for macs) 来收藏本页, 感谢支持MkStone');
+	        }
+	    }
+	    else if(window.opera && window.print) { // Opera - automatically adds to sidebar if rel=sidebar in the tag
+	        return true;
+	    }
+	    else if (browser.indexOf('konqueror')!=-1) { // Konqueror
+	        alert('请按 CTRL+B 来收藏本页， 感谢支持MkStone');
+	    }
+	    else if (browser.indexOf('webkit')!=-1){ // safari
+	        alert('请按 CTRL+B (or Command+D for macs) 来收藏本页, 感谢支持MkStone');
+	    } else {
+	        alert('Your browser cannot add bookmarks using this link. Please add this link manually.')
+	    }
+	}
+	</script>
+
+
+	<div class="container">
+		<div class="row">
+		<div class="col-lg-3"></div>
+		  <div class="col-lg-6">
+		    <div class="input-group">
+
+                     <input type="text" id="url" class="form-control" placeholder="请输入视频链接！">
+		                <span class="input-group-btn">
+		                    <button class="btn btn-default" id="parse" type="button">观看</button>
+	                            </span>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+                {% if request.user.is_authenticated %}
+                        <script>
+		                    $('#parse').click(function(){
+			                    var url = $('#url').val();
+			                        if(url.indexOf('https://')>=0){
+				                        var a = 'https://api.47ks.com/webcloud/?v=';
+				                            var b = a + url;
+				                                window.location.href=b;
+			                                    }else{
+				                                        alert('链接错误！')
+			                                                }
+		                                                        });
+	                                                    </script>
+
+                  {% else %}
+                        <script>     $(function(){
+                    $('#parse').click(function(){
+                        alert("                    请您先登陆，感谢支持MkStone");
+                        return false;
+                            })
+                                })</script>
+                    {% endif %}
+	      </div><!-- /input-group -->
+	      <div class="content">
+			<div class="text">
+				MkStone视频解析福利！ 全网VIP收费视频免费在线观看！支持1080P，支持爱奇艺4K！支持腾讯视频，爱奇艺，优酷，土豆等主流视频网站。
+        只需要把想看视频的网址复制到上面的地址栏，视频自动解析。
+			</div>
+	      	<div class="lianjie">
+	      	  <p>快速链接:</p>
+	        </div>
+	      </div>
+	      <div class="col-lg-12 support">
+	      	<a target="view_window"
+ href="https://v.qq.com/" ><img src="{% static "PythonMkStone/images/qqlogo.png" %}" alt="" class="col-lg-3"></a>
+	      	<a target="view_window"
+ href="http://www.youku.com/"><img src="{% static "PythonMkStone/images/youkulogo.png" %}" alt="" class="col-lg-3"></a>
+	      	<a target="view_window"
+  href="http://www.le.com/"><img src="{% static "PythonMkStone/images/letvlogo.png" %}" alt="" class="col-lg-3"></a>
+	      	<a target="view_window"
+ href="http://www.tudou.com/"><img src="{% static "PythonMkStone/images/tudoulogo.png" %}" alt="" class="col-lg-3"></a>
+	      </div>
+	      <div class="col-lg-12 support">
+	      	<a target="view_window"
+  href="www.baidu.com"><img src="{% static "PythonMkStone/images/163logo.png" %}" alt="" class="col-lg-3"></a>
+	      	<a target="view_window"
+ href="www.baidu.com"><img src="{% static "PythonMkStone/images/sinalogo.png" %}" alt="" class="col-lg-3"></a>
+	      	<a target="view_window"
+  href="http://www.mgtv.com/"><img src="{% static "PythonMkStone/images/hunantvlogo.png" %}" alt="" class="col-lg-3"></a>
+	      	<a target="view_window"
+ href="http://tv.sohu.com/"><img src="{% static "PythonMkStone/images/sohulogo.png" %}" alt="" class="col-lg-3"></a>
+	      </div>
+	    </div><!-- /.col-lg-6 -->
+	    <div class="col-lg-3"><input type="button" value="收藏本站" class="btn btn-info"
+	onclick="addBookmark('http://buffernow.com', 'buffer Now');"/></div>
+	</div><!-- /.row -->
+	</div>
+
+
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
 </html>

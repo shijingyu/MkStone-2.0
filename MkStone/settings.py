@@ -10,7 +10,10 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+from mongoengine import connect
+# #
 
+import time
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,23 +28,37 @@ SECRET_KEY = 'bb+u$i3$agyi2br0rx(dsaokh&2h3k&&y^h@#ok7!u&k+^g9)l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', )
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PythonMkStone',
-    'users',
+    #'mongoengine',
+    #'mongonaut',
+    #'mongo_sessions'
+
 ]
-AUTH_USER_MODEL = 'users.User'
+#SESSION_ENGINE = 'mongo_sessions.session'
+
+# MONGO_PORT = 27017
+# MONGO_HOST = 'localhost'
+# MONGO_DB_NAME = 'MkStone'
+# MONGO_DB_USER = False
+# MONGO_DB_PASSWORD = False
+# MONGO_SESSIONS_COLLECTION = 'mongo_sessions'
+# MONGO_SESSIONS_TTL = 60 * 60
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,6 +68,20 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MkStone',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+TIME_ZONE = 'Asia/Shanghai'
 
 ROOT_URLCONF = 'MkStone.urls'
 
@@ -79,20 +110,9 @@ WSGI_APPLICATION = 'MkStone.wsgi.application'
 #
 # from mongoengine import *
 # #
-# connect('shijingyu')
+# co('shijingyu')
 
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'hahaha',
-    #     'USER':'root',
-    #     'HOST':'',
-    #     'PASSWORD':'',
-    #     'PORT':'',
-    # }
-
-}
 
 
 # Password validation
@@ -119,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+
 
 USE_I18N = True
 

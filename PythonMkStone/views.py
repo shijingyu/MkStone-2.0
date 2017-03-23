@@ -3,8 +3,13 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from PythonMkStone.models import *
+from django.contrib.auth.models import User
 from django import forms
-
+from django.http import HttpResponseRedirect,HttpResponse
+from django.contrib import messages, auth
+from django.shortcuts import render_to_response
+from django.template import Context
+from django.template import RequestContext
 
 # Create your views here.
 def index(request):
@@ -14,7 +19,7 @@ def about(request):
 def res(request):
     res = Res.objects.all()
     return render(request, 'res.html', {'res':res})
-    return render(request, 'res.html')
+
 def res2(request):
     return render(request, 'res2.html')
 
@@ -81,24 +86,64 @@ def res_show(request):
 
 def admin_login(request):
     return render(request, 'admin-login.html')
-# newuser = Article()
-# newuser.aname = 'sd1'on) == del:
 
-# newuser.aclass = 'china'
-# newuser.stars = 112
-# newuser.save()
-# cate = Article.objects(aname="sd1")
-# print cate.aname()
-# cate = Article.objects().all()
-# print cate[0]['aname']
-# adata = Article.objects.all()
-# acount = adata.count()
-# print acount
-# aall = Article.objects.all()
-# acount = aall.count()
-#
-# i = 0
-# while i < acount :
-#     adata = aall[i]['id']
-#     print adata
-#     i += 1
+def login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+
+   # user_1 = User.objects.filter(user__exact = a, password__exact = b)
+    #if user_1:
+       # request.session['user_user'] =user.user
+    user = auth.authenticate(username=username, password=password)
+
+    if user is not None:
+        if user.is_active:
+            auth.login(request, user)
+            return render_to_response('login_success.html', RequestContext(request, {'username':username}))
+        else:
+            return render_to_response('token_error.html', RequestContext(request, {'username':username}))
+    else:
+        return render_to_response('login_error.html', RequestContext(request))
+# else:
+#     return render(request, 'login_error.html')
+
+def login_error(request):
+    return render(request, 'login_error.html')
+
+def login_success(request):
+    return render(request, 'login_success.html')
+
+def logup(request):
+    u = request.POST['username']
+    userrow = User.objects.filter(username=u)[:1]
+    if len(userrow)>0:
+        return render(request, 'login_again.html')
+    else:
+        pppassword = request.POST['password']
+        eeemail = request.POST['email']
+        #adduser.qq =request.POST['qq']
+        user = User.objects.create_user(u, eeemail, pppassword)
+        user.save()
+        return render(request, 'logup_success.html',{'user':u})
+
+
+def logup_success(request):
+    return render(request, 'logup_success.html')
+
+def login_again(request):
+    return render(request, 'login_again.html')
+
+def usename(request):
+    usenames = User.objects.all()
+    return render(request, 'usename.html', {'usenames':usenames})
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'logout.html')
+
+def my(request):
+    mys = User.objects.all()
+    return render(request, 'my.html', {'mys':mys})
+
+def token_error(request):
+    return render(request, 'token_error.html')

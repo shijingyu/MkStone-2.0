@@ -4,24 +4,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>MkStone 管理中心</title>
 <meta name="Copyright" content="Douco Design." />
-<link href="../PythonMkStone/static/PythonMkStone/css/public.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../PythonMkStone/static/PythonMkStone/js/jquery.min.js"></script>
-<script type="text/javascript" src="../PythonMkStone/static/PythonMkStone/js/global.js"></script>
+    {% load staticfiles %}
+<link href="{% static "PythonMkStone/css/public.css" %}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{% static "PythonMkStone/js/jquery.min.js" %}"></script>
+<script type="text/javascript" src="{% static "PythonMkStone/js/global.js"%}"></script>
 </head>
 <body>
 <div id="dcWrap"> <div id="dcHead">
  <div id="head">
-  <div class="logo"><a href="iiindex.html"><img src="../PythonMkStone/static/PythonMkStone/images/dclogo.gif" alt="logo"></a></div>
+  <div class="logo"><a href="#"><img src="{% static "PythonMkStone/images/dclogo.gif" %}" alt="logo"></a></div>
   <div class="nav">
    <ul>
     <li class="M"><a href="JavaScript:void(0);" class="topAdd">新建</a>
-     <div class="drop mTopad"><a href="addres.html">资源</a> <a href="addarticle.html">文章</a>  <a href="#">管理员</a> <a href="link.html"></a> </div>
+     <div class="drop mTopad"><a href="/addres">资源</a> <a href="/addarticle">文章</a>  <a href="#">管理员</a> <a href="link.html"></a> </div>
     </li>
-    <li><a href="index.html" target="_blank">查看站点</a></li>
-    <li class="noRight"><a href="about.html">MkStone+</a></li>
+    <li><a href="/index" target="_blank">查看站点</a></li>
+    <li class="noRight"><a href="/about">MkStone+</a></li>
    </ul>
    <ul class="navRight">
-    <li class="M noLeft"><a href="JavaScript:void(0);">您好，admin</a>
+    <li class="M noLeft"><a href="JavaScript:void(0);">您好，{{ request.user }}</a>
      <div class="drop mUser">
       <a href="#">编辑我的个人资料</a>
 
@@ -34,24 +35,24 @@
 </div>
 <!-- dcHead 结束 --> <div id="dcLeft"><div id="menu">
  <ul class="top">
-  <li><a href="iiindex.html"><i class="home"></i><em>管理首页</em></a></li>
+  <li><a href="#"><i class="home"></i><em>管理首页</em></a></li>
  </ul>
 
    <ul>
 
-  <li><a href="res.html"><i class="product"></i><em>资源列表</em></a></li>
+  <li><a href="res_show.html"><i class="product"></i><em>资源列表</em></a></li>
  </ul>
   <ul>
-  <li><a href="article_show.php"><i class="article"></i><em>文章列表</em></a></li>
+  <li><a href="/article_show"><i class="article"></i><em>文章列表</em></a></li>
  </ul>
   <ul>
-  <li><a href="usename.php"><i class="usename"></i><em>会员列表</em></a></li>
+  <li><a href="/usename"><i class="usename"></i><em>会员列表</em></a></li>
  </ul>
    <ul class="bot">
-  <li><a href="backup.html"><i class="backup"></i><em>数据备份</em></a></li>
+  <li><a href="/backup"><i class="backup"></i><em>数据备份</em></a></li>
 
-  <li><a href="manager.html"><i class="manager"></i><em>网站管理员</em></a></li>
-  <li><a href="manager_log.htm"><i class="managerLog"></i><em>操作记录</em></a></li>
+  <li><a href="/manager"><i class="manager"></i><em>网站管理员</em></a></li>
+  <li><a href="/manager_log"><i class="managerLog"></i><em>操作记录</em></a></li>
  </ul>
 </div></div>
  <div id="dcMain">
@@ -65,15 +66,15 @@
 
      <a href="index.html">网站主页</a>
 
-     <a href="article.php">文章页面</a>
+     <a href="/article">文章页面</a>
 
-     <a href="download.php">下载页面</a>
+     <a href="/res">下载页面</a>
 
-     <a href="game.html">游戏页面</a>
+     <a href="/vedio">视频页面</a>
 
-     <a href="ask.html">问答页面</a>
+     <a href="/ask">问答页面</a>
 
-     <a href="about.html">关于我们</a>
+     <a href="/about">关于我们</a>
           <div class="clear"></div>
     </ul>
    </div>
