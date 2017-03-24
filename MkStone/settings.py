@@ -30,7 +30,7 @@ SECRET_KEY = 'bb+u$i3$agyi2br0rx(dsaokh&2h3k&&y^h@#ok7!u&k+^g9)l'
 DEBUG = True
 AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', )
 ALLOWED_HOSTS = []
-
+DOMAIN = 'http://www.shitouboy.com'
 # Application definition
 
 INSTALLED_APPS = [
@@ -162,3 +162,9 @@ STATIC_URL = '/static/'
 #     "django.contrib.staticfiles.finders.FileSystemFinder",
 #     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 # )
+
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST_USER = 'shijy675497282@163.com'
+EMAIL_HOST_PASSWORD = '199110127638nice'
+EMAIL_PORT = 994   #465，994
+EMAIL_USE_SSL = True

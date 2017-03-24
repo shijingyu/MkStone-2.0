@@ -1,6 +1,6 @@
 #coding:utf-8
 from django.shortcuts import render
-
+from django.core.mail import send_mail
 from django.http import HttpResponse
 from PythonMkStone.models import *
 from django.contrib.auth.models import User
@@ -10,6 +10,28 @@ from django.contrib import messages, auth
 from django.shortcuts import render_to_response
 from django.template import Context
 from django.template import RequestContext
+
+from itsdangerous import URLSafeTimedSerializer as utsr
+import base64
+import re
+from django.conf import settings as django_settings
+class Token:
+    def __init__(self, security_key):
+        self.security_key = security_key
+        self.salt = base64.encodestring(security_key)
+    def generate_validate_token(self, username):
+        serializer = utsr(self.security_key)
+        return serializer.dumps(username, self.salt)
+    def confirm_validate_token(self, token, expiration=3600):
+        serializer = utsr(self.security_key)
+        return serializer.loads(token, salt=self.salt, max_age=expiration)
+    def remove_validate_token(self, token):
+        serializer = utsr(self.security_key)
+	    #print serializer.loads(token, salt=self.salt)
+        return serializer.loads(token, salt=self.salt)
+
+token_confirm = Token(django_settings.SECRET_KEY)    # 定义为全局变量
+
 
 # Create your views here.
 def index(request):
@@ -123,8 +145,14 @@ def logup(request):
         eeemail = request.POST['email']
         #adduser.qq =request.POST['qq']
         user = User.objects.create_user(u, eeemail, pppassword)
+        user.is_active = False
         user.save()
-        return render(request, 'logup_success.html',{'user':u})
+        token = token_confirm.generate_validate_token(u)
+        message = "\n".join([u'{0}, 欢迎加入MkStone'.format(u), u'请访问该链接，完成用户验证:',
+                             '/'.join([django_settings.DOMAIN, 'activate', token])])
+        send_mail(u'MkStone注册验证邮件', message, 'shijy675497282@163.com', [eeemail], fail_silently=False)
+        return render(request, 'message.html', {'message': u"请登录到注册邮箱中验证用户，有效期为1个小时"})
+       # return render(request, 'logup_success.html',{'user':u})
 
 
 def logup_success(request):
@@ -147,3 +175,22 @@ def my(request):
 
 def token_error(request):
     return render(request, 'token_error.html')
+
+def active_user(requset, token):
+    try:
+        username = token_confirm.confirm_validate_token(token)
+    except:
+        username = token_confirm.remove_validate_token(token)
+        users = User.objects.filter(username=username)
+        for user in users:
+            user.delete()
+        return render(request, 'message.html', {
+            'message': u'对不起，验证链接已经过期，请重新注册'})
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return render(request, 'message.html', {'message': u"对不起，您所验证的用户不存在，请重新注册"})
+    user.is_active = True
+    user.save()
+    message = u'验证成功，请进行登陆，享受MkStone'
+    return render(request, 'message.html', {'message': message})
