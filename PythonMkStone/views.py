@@ -193,4 +193,4 @@ def active_user(requset, token):
     user.is_active = True
     user.save()
     message = u'验证成功，请进行登陆，享受MkStone'
-    return render(request, 'message.html', {'message': message})
+    return render_to_response('message.html', {'message': message})

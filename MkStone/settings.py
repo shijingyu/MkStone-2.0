@@ -30,7 +30,8 @@ SECRET_KEY = 'bb+u$i3$agyi2br0rx(dsaokh&2h3k&&y^h@#ok7!u&k+^g9)l'
 DEBUG = True
 AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', )
 ALLOWED_HOSTS = []
-DOMAIN = 'http://www.shitouboy.com'
+#DOMAIN = 'http://www.shitouboy.com'
+DOMAIN = 'http://localhost:8000'
 # Application definition
 
 INSTALLED_APPS = [
