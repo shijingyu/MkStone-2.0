@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-from mongoengine import connect
 # #
 
 import time
@@ -27,9 +26,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bb+u$i3$agyi2br0rx(dsaokh&2h3k&&y^h@#ok7!u&k+^g9)l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = Flase
+TEMPLATE_DEBUG = Flase
 AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', )
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '123.207.168.69',
+    '120.5.228.212'
+]
 #DOMAIN = 'http://www.shitouboy.com'
 DOMAIN = 'http://localhost:8000'
 # Application definition
@@ -153,6 +158,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/MkStone/static/'
 #
 # STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 # TATICFILES_DIRS = (
@@ -163,6 +169,9 @@ STATIC_URL = '/static/'
 #     "django.contrib.staticfiles.finders.FileSystemFinder",
 #     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 # )
+ADMINS = (
+    ('shi', 'xy960722@gmail.com')
+)
 
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_HOST_USER = 'shijy675497282@163.com'
