@@ -26,17 +26,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bb+u$i3$agyi2br0rx(dsaokh&2h3k&&y^h@#ok7!u&k+^g9)l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = Flase
-TEMPLATE_DEBUG = Flase
+DEBUG = True
+#TEMPLATE_DEBUG = Flase
 AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', )
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     '123.207.168.69',
-    '120.5.228.212'
+    '120.5.228.212',
+    'www.shitouboy.com'
 ]
-#DOMAIN = 'http://www.shitouboy.com'
-DOMAIN = 'http://localhost:8000'
+DOMAIN = 'http://www.shitouboy.com'
+#DOMAIN = 'http://localhost:8000'
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'MkStone',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '960722',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -158,7 +159,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www/MkStone/static/'
+STATIC_ROOT = '/var/www/static/'
 #
 # STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 # TATICFILES_DIRS = (
