@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Question and answer area</title>
     <!-- Bootstrap -->
-    <link href="../PythonMkStone/static/PythonMkStone/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../PythonMkStone/static/PythonMkStone/css/aside/style.css">
-    <link rel="stylesheet" href="../PythonMkStone/static/PythonMkStone/css/ask.css">
-    <link href="../PythonMkStone/static/PythonMkStone/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../PythonMkStone/static/PythonMkStone/css/aside/sidebar-menu.css">
+    {% load staticfiles %}
+    <link href="{% static "PythonMkStone/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "PythonMkStone/css/aside/style.css"}"
+    <link rel="stylesheet" href="{% static "PythonMkStone/css/ask.css" %}">
+    <link href="{% static "PythonMkStone/Font-Awesome-3.2.1/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "PythonMkStone/css/aside/sidear-menu.css" %}>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../PythonMkStone/static/PythonMkStone/js/bootstrap.min.js"></script>
-    <script src="../PythonMkStone/static/PythonMkStone/js/ask.js"></script>
+    <script src="{% static "PythonMkStone/js/bootstrap.min.js"></script>
+    <script src="{% static "PythonMkStone/js/ask.js" %}"></script>
 </head>
 
 <body>
@@ -316,9 +317,9 @@
         <button type="button" class="btn btn-default" id="ask-close">Close</button>
     </div>
     <script>
-    window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+    window.jQuery || document.write('<script src="{% static "PythonMkStone/js/jquery-1.9.0.min.js" %}"><\/script>')
     </script>
-    <script src="../PythonMkStone/static/PythonMkStone/js/aside/main.js"></script>
+    <script src="{% static "PythonMkStone/js/aside/main.js" %}"></script>
     <!-- Resource jQuery -->
 </body>
 

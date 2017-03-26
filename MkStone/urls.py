@@ -19,6 +19,7 @@ from PythonMkStone import views
 from django.conf.urls import url
 
 urlpatterns = [
+    url(r'^$', views.index),
     url(r'^admin/', admin.site.urls),
     url(r'^index/', views.index),
     url(r'^about/', views.about),
