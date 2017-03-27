@@ -18,7 +18,7 @@
       <th width="80" align="center">操作</th>
      </tr>
 {% for ashow in ashows %}
- <tr><td align='center'><input type='checkbox' name='checkbox[]'  /></td><td align='center'>{{ ashow.aname }}</td><td align='left'>{{ ashow.aclass }}</td><td align='left'>{{ ashow.author }}</td><td align='left'>{{ ashow.auptime }}</td><td align='left'>{{ ashow.watch }}</td><td align='center'><a href='deletearticle?action=del&aname="{{ ashow.aname }}"'>删除</a></td></tr>
+ <tr><td align='center'><input type='checkbox' name='checkbox[]'  /></td><td align='center'>{{ ashow.aname }}</td><td align='left'>{{ ashow.aclass }}</td><td align='left'>{{ ashow.author }}</td><td align='left'>{{ ashow.auptime }}</td><td align='left'>{{ ashow.watch }}</td><td align='center'><a href='deletearticle?action=del&aname="{{ ashow.id }}"'>删除</a></td></tr>
  
 
        {% endfor %}

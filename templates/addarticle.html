@@ -50,36 +50,36 @@
             <tr>
        <td align="right" valign="top">文章内容</td>
        <td>
-        <!-- KindEditor -->
-           {% load staticfiles %}
-        <link rel="stylesheet" href="{% static "PythonMkStone/js/kindeditor/themes/default/default.css" %}" />
-			<link rel="stylesheet" href="{% static "PythonMkStone/js/kindeditor/plugins/code/prettify.css" %}" />
-			<script charset="utf-8" src="{% static "PythonMkStone/js/kindeditor/kindeditor.js" %}"></script>
-			<script charset="utf-8" src="{% static "PythonMkStone/js/kindeditor/lang/zh_CN.js" %}"></script>
-			<script charset="utf-8" src="{% static "PythonMkStone/js/kindeditor/plugins/code/prettify.js" %}"></script>
-        <script>
-					KindEditor.ready(function(K) {
-						var editor1 = K.create('textarea[name="content"]', {
-							cssPath : '../plugins/code/prettify.css',
-							uploadJson : '../php/upload_json.php',
-							fileManagerJson : '../php/file_manager_json.php',
-							allowFileManager : true,
-							afterCreate : function() {
-								var self = this;
-								K.ctrl(document, 13, function() {
-									self.sync();
-									K('form[name=example]')[0].submit();
-								});
-								K.ctrl(self.edit.doc, 13, function() {
-									self.sync();
-									K('form[name=example]')[0].submit();
-								});
-							}
-						});
-						prettyPrint();
-					});
-			</script>
-        <!-- /KindEditor -->
+{#        <!-- KindEditor -->#}
+{#           {% load staticfiles %}#}
+{#        <link rel="stylesheet" href="{% static "PythonMkStone/js/kindeditor/themes/default/default.css" %}" />#}
+{#			<link rel="stylesheet" href="{% static "PythonMkStone/js/kindeditor/plugins/code/prettify.css" %}" />#}
+{#			<script charset="utf-8" src="{% static "PythonMkStone/js/kindeditor/kindeditor.js" %}"></script>#}
+{#			<script charset="utf-8" src="{% static "PythonMkStone/js/kindeditor/lang/zh_CN.js" %}"></script>#}
+{#			<script charset="utf-8" src="{% static "PythonMkStone/js/kindeditor/plugins/code/prettify.js" %}"></script>#}
+{#        <script>#}
+{#					KindEditor.ready(function(K) {#}
+{#						var editor1 = K.create('textarea[name="content"]', {#}
+{#							cssPath : '../plugins/code/prettify.css',#}
+{#							uploadJson : '../php/upload_json.php',#}
+{#							fileManagerJson : '../php/file_manager_json.php',#}
+{#							allowFileManager : true,#}
+{#							afterCreate : function() {#}
+{#								var self = this;#}
+{#								K.ctrl(document, 13, function() {#}
+{#									self.sync();#}
+{#									K('form[name=example]')[0].submit();#}
+{#								});#}
+{#								K.ctrl(self.edit.doc, 13, function() {#}
+{#									self.sync();#}
+{#									K('form[name=example]')[0].submit();#}
+{#								});#}
+{#							}#}
+{#						});#}
+{#						prettyPrint();#}
+{#					});#}
+{#			</script>#}
+{#        <!-- /KindEditor -->#}
         <textarea id="content" name="content" style="width:780px;height:400px;" class="textArea"></textarea>
        </td>
       </tr>
