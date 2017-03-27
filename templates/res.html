@@ -22,18 +22,18 @@
       <li class="active">type</li>
     </ol>
 
-      {% for re in res %}
+
     <!-- 栅格布局 -->
     <div class="row">
             <!-- 文章左边 -->
            <div class="content-l col-md-10">
-
+{% for re in res %}
                 <div class='box row'>
                   
                   <div class='download-img col-md-2'>
                       {% load staticfiles %}
 
-                  <a href='res2.html?action3=down&resid=".$row[rid]."'><img src='{% static "PythonMkStone/images/single-head.png" %}' alt='' style='width:100px;heigth:100px;'></a>
+                  <a href=''><img src='{% static "PythonMkStone/images/single-head.png" %}' alt='' style='width:100px;heigth:100px;'></a>
                 
                 </div>
                
@@ -48,36 +48,18 @@
                         <span>售价</span>：{{ re.price }}&nbsp; &nbsp;&nbsp; &nbsp;<span>销量</span>：{{ re.prow }}
                     </p>
                     <a>
-                      <button id='getpassword' type='button' class='btn btn-primary'>获取密码</button>
+                      <button id='getpassword' type='button' class='btn btn-primary getpassword'  >获取密码</button>
                     </a>
-
-                  </div>
-                </div>
-          {% if request.user.is_authenticated %}
-                <script>     $(function(){
-                    $("#getpassword").click(function(){
-                        alert("                                          {{ re.rpassword }}");
-                        return false;
-                            })
-                                })</script>
-                {% else %}
-                        <script>     $(function(){
-                    $("#getpassword").click(function(){
-                        alert("                                请登陆后查看        ");
-                        return false;
-                            })
-                                })</script>
-
-            {% endif %}
-
-{% endfor %}
-
-
-
-
 
 
            </div>
+    </div>
+
+{% endfor %}
+    </div>
+
+
+
            <!-- 文章右边 -->
            <div class="content-r col-md-2">
                <p class="p1">
@@ -90,12 +72,28 @@
                </p>
            </div>
            <!-- 文章右边-end -->
-        </div>
-        <!-- 栅格布局-end -->
-    </div>
-    <!-- 居中容器-end -->
+  </div>
+</div>
 </div>
      <!-- 正文结束 -->
+
+{% if request.user.is_authenticated %}
+                <script>     $(function(){
+                    $(".getpassword").click(function(){
+                        alert("                                          {{ re.rpassword }}");
+                        return false;
+                            })
+                                })</script>
+                {% else %}
+                        <script>     $(function(){
+                    $(".getpassword").click(function(){
+                        alert("                                请登陆后查看        ");
+                        return false;
+                            })
+                                })</script>
+
+            {% endif %}
+
 
 <!-- 分页 -->
 <nav>
