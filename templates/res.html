@@ -48,7 +48,7 @@
                         <span>售价</span>：{{ re.price }}&nbsp; &nbsp;&nbsp; &nbsp;<span>销量</span>：{{ re.prow }}
                     </p>
                     <a>
-                      <button id='getpassword' type='button' class='btn btn-primary getpassword'  >获取密码</button>
+                        <span>密码：</span>{{ re.rpassword }}
                     </a>
 
 
@@ -56,6 +56,7 @@
     </div>
 
 {% endfor %}
+
     </div>
 
 
@@ -77,22 +78,7 @@
 </div>
      <!-- 正文结束 -->
 
-{% if request.user.is_authenticated %}
-                <script>     $(function(){
-                    $(".getpassword").click(function(){
-                        alert("                                          {{ re.rpassword }}");
-                        return false;
-                            })
-                                })</script>
-                {% else %}
-                        <script>     $(function(){
-                    $(".getpassword").click(function(){
-                        alert("                                请登陆后查看        ");
-                        return false;
-                            })
-                                })</script>
 
-            {% endif %}
 
 
 <!-- 分页 -->
