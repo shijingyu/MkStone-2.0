@@ -182,8 +182,8 @@ def active_user(requset, token):
     except:
         username = token_confirm.remove_validate_token(token)
         users = User.objects.filter(username=username)
-        for user in users:
-            user.delete()
+        #for user in users:
+           # user.delete()
         return render(request, 'message.html', {
             'message': u'对不起，验证链接已经过期，请重新注册'})
     try:
