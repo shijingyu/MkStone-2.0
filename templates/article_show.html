@@ -1,5 +1,4 @@
-{% if request.user.is_authenticated %}
-{% elif request.user == '我是石头哥哥' %}
+{% if request.user.is_superuser == 1 %}
     {% include 'admin_base.html' %}
     {% include 'article_show2.html' %}
 {% else %}
