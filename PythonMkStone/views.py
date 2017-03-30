@@ -15,6 +15,8 @@ from itsdangerous import URLSafeTimedSerializer as utsr
 import base64
 import re
 from django.conf import settings as django_settings
+# global a
+# a = 3
 class Token:
     def __init__(self, security_key):
         self.security_key = security_key
@@ -107,7 +109,21 @@ def res_show(request):
     return render(request, 'res_show.html', {'rshows':rshows})
 
 def admin_login(request):
-    return render(request, 'admin-login.html')
+    return render(request, 'admin_login.html')
+
+def admin_login_success(request):
+    # username = request.POST['username']
+    # password = request.POST['password']
+    # user = auth.authenticate(username=username, password=password)
+    # if user is not None and username == u'我是石头哥哥':
+    #
+    #
+    #
+    #     return render(request, 'admin_index.html', {'a':a})
+    # else:
+    #     return render(request, 'message.html', {'messages':u'管理员账号密码错误'})
+
+    return render(request, 'message.html', {'messages': u'管理员账号密码错误'})
 
 def login(request):
     username = request.POST['username']
