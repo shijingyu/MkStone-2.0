@@ -1,0 +1,1 @@
+12 4 * * * ./etc/profile; /bin/sh ~/data/MkStone-backupSQL/backup.sh
