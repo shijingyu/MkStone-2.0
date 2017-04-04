@@ -210,3 +210,5 @@ def active_user(requset, token):
     user.save()
     message = u'验证成功，请进行登陆，享受MkStone'
     return render_to_response('message.html', {'message': message})
+def help(request):
+    return render(request, 'help.html')

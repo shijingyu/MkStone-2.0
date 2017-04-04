@@ -50,7 +50,7 @@ urlpatterns = [
     url(r'^logout/', views.logout),
     url(r'^my/',views.my),
     url(r'^token_error/', views.token_error),
-    url(r'^activate/(?P<token>\w+.[-_\w]*\w+.[-_\w]*\w+)/$', views.active_user, name='active_user')
-
+    url(r'^activate/(?P<token>\w+.[-_\w]*\w+.[-_\w]*\w+)/$', views.active_user, name='active_user'),
+    url(r'^help/',views.help)
 
 ]
