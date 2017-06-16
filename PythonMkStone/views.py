@@ -212,3 +212,6 @@ def active_user(requset, token):
     return render_to_response('message.html', {'message': message})
 def help(request):
     return render(request, 'help.html')
+
+def hand(request):
+    return render(request, 'hand.html')
