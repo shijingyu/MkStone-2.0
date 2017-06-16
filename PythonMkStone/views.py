@@ -213,5 +213,5 @@ def active_user(requset, token):
 def help(request):
     return render(request, 'help.html')
 
-def hand(request):
-    return render(request, 'hand.html')
+# def hand(request):
+#     return render(request, 'hand.html')

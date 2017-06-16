@@ -52,6 +52,6 @@ urlpatterns = [
     url(r'^token_error/', views.token_error),
     url(r'^activate/(?P<token>\w+.[-_\w]*\w+.[-_\w]*\w+)/$', views.active_user, name='active_user'),
     url(r'^help/',views.help),
-    url(r'^hand/', views.hand),
+    # url(r'^hand/', views.hand),
 
 ]
