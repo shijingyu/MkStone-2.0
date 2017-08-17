@@ -92,9 +92,16 @@
 		                    $('#parse').click(function(){
 			                    var url = $('#url').val();
 			                        if(url.indexOf('http')>=0){
-				                        var a = 'https://api.47ks.com/webcloud/?v=';
-				                            var b = a + url;
-				                                window.location.href=b;
+			                        	if(url.indexOf('iqiyi')>=0){
+
+			                        		var a = 'http://qtzr.net/s/?qt=';
+			                        	}else{
+
+
+				                       		 var a = 'http://2gty.com/apiurl/yun.php?url=';
+				                 		    }
+				                        var b = a + url;
+				                        window.location.href=b;
 			                                    }else{
 				                                        alert('链接错误！')
 			                                                }
